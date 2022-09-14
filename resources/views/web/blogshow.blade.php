@@ -5,152 +5,98 @@
 @endpush
 
 @section('content')
-
-        <div class="btBlogHeaderContent">
-          <div class="bt_bb_wrapper">
-            <section id="bt_section62ed16846aa2f" class="boldSection topSemiSpaced bottomSemiSpaced gutter inherit">
-              <div class="port">
-                <div class="boldCell">
-                  <div class="boldCellInner"></div>
+<div class="content-holder elem scale-bg2 transition3" >
+    <div class="fixed-title"><span>Journal</span></div>
+    <!--=============== content  ===============-->
+    <div class="content">
+        <!--section  page title   -->
+        <!-- <section class="parallax-section">
+            <div class="overlay"></div>
+            <div class="bg" style="background-image:url(images/bg/45.jpg)" data-top-bottom="transform: translateY(200px);" data-bottom-top="transform: translateY(-200px);"></div>
+            <div class="container">
+                <h2>Our Journal</h2>
+                <div class="separator"></div>
+                <h3 class="subtitle">Duis lorem urna, porta gravida</h3>
+            </div>
+            <a class="custom-scroll-link sect-scroll" href="#sec1"><i class="fa fa-angle-double-down"></i></a>
+        </section> -->
+        <!--section  page title end  -->
+        <!-- <div class="sections-bg"></div> -->
+        <section id="sec1">
+            <div class="container column-container">
+                <div class="row">
+                    <div class="col-md-7">
+                        <article>
+                            <ul class="blog-title">
+                                <li><a href="#" class="tag">{{date('d M Y', strtotime($blog->created_at))}}</a></li>
+                                <li> - </li>
+                                <li><a href="{{route('front.blogcategory',$blog->category->name)}}" class="tag">{{$blog->category->name}} </a></li>
+                            </ul>
+                            <div class="blog-text">
+                                <h2>{{$blog->title}}</h2>
+                                <p>
+                                  {!!$blog->details!!}
+                                </p>
+                            </div>
+                        </article>
+                    </div>
+                    <!--================= sidebar  ================-->
+                    <div class="col-md-4">
+                        <div class="sidebar">
+                            <!-- widget -->
+                            <div class="widget">
+                                <div class="searh-holder">
+                                    <form action="{{route('front.blogsearch')}}" class="searh-inner">
+                                        <input type="text" class="search" placeholder="Search.." name="search" />
+                                        <button class="search-submit" id="submit_btn"><i class="fa fa-search transition"></i> </button>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- widget -->
+                            <div class="widget">
+                                <h3>Latest posts</h3>
+                                <ul class="widget-posts">
+                                  @foreach($latest_posts as $post)
+                                    <li class="clearfix">
+                                        <a href="{{route('front.blogshow',$post->url)}}"  class="widget-posts-img"><img src="{{asset('assets/images/blogs/'.$post->photo)}}" class="respimg" alt=""></a>
+                                        <div class="widget-posts-descr">
+                                            <a href="{{route('front.blogshow',$post->url)}}" title="">{{$post->title}}</a>
+                                            <span class="widget-posts-date"> {{date('d M Y', strtotime($post->created_at))}} </span>
+                                        </div>
+                                    </li>
+                                  @endforeach
+                                </ul>
+                            </div>
+                            <div class="widget">
+                                <h3>Tags</h3>
+                                <div class="clearfix"></div>
+                                <ul class="tagcloud">
+                                  @foreach($tags as $tag)
+                                    <li><a href="{{route('front.blogtags',$tag)}}" class="transition link">{{$tag}}</a></li>
+                                  @endforeach
+                                </ul>
+                            </div>
+                            <!-- widget -->
+                            <div class="widget">
+                                <h3>Categories</h3>
+                                <div class="clearfix"></div>
+                                <ul>
+                                  @foreach($bcats as $category)
+                                    <li class="cat-item"><a href="{{route('front.blogcategory',$category->name)}}">{{$category->name}}</a></li>
+                                  @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end sidebar -->
                 </div>
-              </div>
-            </section>
-          </div>
-        </div>
-        <section class="boldSection bottomSemiSpaced btPageHeadline gutter  topSemiSpaced" style="background-image:url()">
-          <div class="port">
-            <header class="header btClear extralarge bt_bb_1">
-              <div class="btSuperTitle">
-                <div class="btBreadCrumbs">
-                  <nav>
-                    <ul>
-                      <li>
-                        <a href="/">Home</a>
-                      </li>
-                      <a href="#">News</a> / {{$blog->title}}
-                    </ul>
-                  </nav>
-                </div>
-              </div>
-              <div class="dash">
-                <h1>
-                  <span class="headline">{{$blog->title}}</span>
-                </h1>
-              </div>
-              <div class="btSubTitle">{{$blog->sub_title}}</div>
-            </header>
-          </div>
+            </div>
         </section>
-        <div class="btContentHolder">
-          <div class="btContent">
-            <article class="boldSection btArticle gutter divider noPhoto post-8790 post type-post status-publish format-standard hentry category-news">
-              <div class="port">
-                <div class="boldCell">
-                  <div class="boldRow">
-                    <div class="rowItem btTextLeft col-sm-12 btArticleHeader">
-                      <header class="header btClear large btDash bottomDash btAlternateDash">
-                        <div class="btSuperTitle">
-                          <span class="btArticleCategories">
-                            <a href="#" class="btArticleCategory">News</a>
-                          </span>
-                        </div>
-                        <div class="dash">
-                          <h2>
-                            <span class="headline">{{$blog->title}}</span>
-                          </h2>
-                        </div>
-                        <div class="btSubTitle">
-                          <span class="btArticleDate">{{date('d M Y', strtotime($blog->created_at))}}</span>
-                          <a href="javascript:void(0)" class="btArticleAuthor">by Content Writer</a>
-                        </div>
-                      </header>
-                    </div>
-                    <!-- /rowItem -->
-                  </div>
-                  <!-- /boldRow -->
-                  <div class="boldRow">
-                    <div class="rowItem col-sm-8">
-                      <div class="btArticleBody portfolioBody ">
-                        <div class="bt_bb_wrapper">
-                          <iframe width="560" height="315" src="https://www.youtube.com/embed/{{$blog->video_link}}" allowfullscreen=""></iframe>
-                          <p>{!!$blog->details!!}</p>
-                          <p>
-                            <a href="http://www.newstoday.com.bd/index.php?option=details&amp;news_id=2540213&amp;date=2019-08-26">Source: {{$blog->source}}</a>
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- /rowItem -->
-                  </div>
-                  <!-- /boldRow -->
-                  <div class="boldRow topSmallSpaced bottomSmallSpaced">
-                    <div class="rowItem col-sm-6 tagsRowItem btTextLeft"></div>
-                    <!-- /rowItem -->
-                    <div class="rowItem col-sm-6 cellRight shareRowItem btTextRight">
-                      <div class="socialRow">
-                        <span class="btIco btIcoOutlineType btIcoAccentColor btIcoSmallSize">
-                          <a href="https://www.facebook.com/sharer/sharer.php?u=https://asrafulhoque.com/2020/11/first-invasive-cardiac-surgery-conducted-at-govt-hospital/" data-ico-fa="&#xf09a;" class="btIcoHolder">
-                            <em></em>
-                          </a>
-                        </span>
-                        <span class="btIco btIcoOutlineType btIcoAccentColor btIcoSmallSize">
-                          <a href="https://twitter.com/home?status=https://asrafulhoque.com/2020/11/first-invasive-cardiac-surgery-conducted-at-govt-hospital/" data-ico-fa="&#xf099;" class="btIcoHolder">
-                            <em></em>
-                          </a>
-                        </span>
-                        <span class="btIco btIcoOutlineType btIcoAccentColor btIcoSmallSize">
-                          <a href="https://www.linkedin.com/shareArticle?url=https://asrafulhoque.com/2020/11/first-invasive-cardiac-surgery-conducted-at-govt-hospital/" data-ico-fa="&#xf0e1;" class="btIcoHolder">
-                            <em></em>
-                          </a>
-                        </span>
-                        <span class="btIco btIcoOutlineType btIcoAccentColor btIcoSmallSize">
-                          <a href="https://plus.google.com/share?url=https://asrafulhoque.com/2020/11/first-invasive-cardiac-surgery-conducted-at-govt-hospital/" data-ico-fa="&#xf0d5;" class="btIcoHolder">
-                            <em></em>
-                          </a>
-                        </span>
-                        <span class="btIco btIcoOutlineType btIcoAccentColor btIcoSmallSize">
-                          <a href="http://vkontakte.ru/share.php?url=https://asrafulhoque.com/2020/11/first-invasive-cardiac-surgery-conducted-at-govt-hospital/" data-ico-fa="&#xf189;" class="btIcoHolder">
-                            <em></em>
-                          </a>
-                        </span>
-                      </div>
-                    </div>
-                    <!-- /rowItem -->
-                  </div>
-                  <!-- /boldRow -->
-                  <div class="boldRow">
-                    <div class="rowItem col-sm-12 btLinkPages"></div>
-                    <!-- /rowItem -->
-                  </div>
-                  <!-- /boldRow -->
-                </div>
-                <!-- /boldCell -->
-              </div>
-              <!-- /port -->
-            </article>
-            <section class="boldSection gutter bottomSemiSpaced">
-              <div class="port">
-                <div class="boldRow">
-                  <div class="rowItem col-sm-12"></div>
-                  <!-- /rowItem -->
-                </div>
-                <!-- /boldRow -->
-                <div class="boldRow">
-                  <div class="rowItem col-sm-12">
-                    <div class="btClear btSeparator bottomSmallSpaced border">
-                      <hr>
-                    </div>
-                  </div>
-                  <!-- /rowItem -->
-                </div>
-              </div>
-              <!-- /port -->
-            </section>
-          </div>
-          <aside class="btSidebar"></aside>
-        </div>
-        <!-- /contentHolder -->
-      
+    </div>
+    <!-- Content end  -->
+    <!-- Share container  -->
+    <div class="share-container  isShare"  data-share="['facebook','pinterest','googleplus','twitter','linkedin']"></div>
+</div>      
 @endsection
 
 @push('css')

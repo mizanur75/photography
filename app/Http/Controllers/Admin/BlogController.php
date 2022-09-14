@@ -8,6 +8,7 @@ use App\Models\BlogCategory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Str;
 use Validator;
 
 class BlogController extends Controller
@@ -65,6 +66,7 @@ class BlogController extends Controller
         //--- Logic Section
         $data = new Blog();
         $input = $request->all();
+        $input['url'] = Str::slug($request->title);
         if ($file = $request->file('photo')) 
          {      
             $name = time().$file->getClientOriginalName();
@@ -119,6 +121,7 @@ class BlogController extends Controller
         //--- Logic Section
         $data = Blog::findOrFail($id);
         $input = $request->all();
+        $input['url'] = Str::slug($request->title);
             if ($file = $request->file('photo')) 
             {              
                 $name = time().$file->getClientOriginalName();

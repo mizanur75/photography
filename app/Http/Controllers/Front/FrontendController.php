@@ -57,20 +57,6 @@ class FrontendController extends Controller
     public function extraIndex(Request $request)
     {
 
-        if(!empty($request->reff))
-        {
-            $affilate_user = User::where('affilate_code','=',$request->reff)->first();
-            if(!empty($affilate_user))
-            {
-                $gs = Generalsetting::findOrFail(1);
-                if($gs->is_affilate == 1)
-                {
-                    Session::put('affilate', $affilate_user->id);
-                    return redirect()->route('front.index');
-                }
-            }
-        }
-
         $sliders = DB::table('sliders')->get();
         $services = DB::table('services')->where('user_id','=',0)->get();
         $reviews =  DB::table('reviews')->get();
@@ -80,15 +66,6 @@ class FrontendController extends Controller
     }
 
 // -------- HOME PAGE SECTION ENDS --------------------------
-
-
-    function finalize(){
-        $actual_path = str_replace('project','',base_path());
-        $dir = $actual_path.'install';
-        $this->deleteDir($dir);
-        return redirect('/');
-    }
-
 
 
 // -------------------------------- BLOG SECTION ----------------------------------------
@@ -158,9 +135,10 @@ class FrontendController extends Controller
         $tags = null;
         $tagz = '';
         $bcats = BlogCategory::all();
-        $blog = Blog::findOrFail($id);
+        $blog = Blog::where('url',$id)->first();
         $blog->views = $blog->views + 1;
         $blog->update();
+        $latest_posts = Blog::latest()->take(4)->get();
         $name = Blog::pluck('tags')->toArray();
         foreach($name as $nm)
         {
@@ -168,10 +146,12 @@ class FrontendController extends Controller
         }
         $tags = array_unique(explode(',',$tagz));
 
-        $archives= Blog::orderBy('created_at','desc')->get()->groupBy(function($item){ return $item->created_at->format('F Y'); })->take(5)->toArray();
+        $archives= Blog::orderBy('created_at','desc')->get()->groupBy(function($item){ return $item->created_at->format('F Y'); 
+        })->take(5)->toArray();
+
         $blog_meta_tag = $blog->meta_tag;
         $blog_meta_description = $blog->meta_description;
-        return view('web.blogshow',compact('blog','bcats','tags','archives','blog_meta_tag','blog_meta_description'));
+        return view('web.blogshow',compact('blog','bcats','tags','latest_posts','archives','blog_meta_tag','blog_meta_description'));
     }
 
 

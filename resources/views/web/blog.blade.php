@@ -27,100 +27,33 @@
           <div class="container">
             <!--================= articles   ================-->
             <div class="row">
+            @foreach($blogs as $blog)
               <div class="col-md-3">
-                <!-- 1 -->
                 <article>
                     <ul class="blog-title">
-                        <li><a href="#" class="tag">26 may 2014</a></li>
+                        <li><a href="#" class="tag">{{date('d M Y', strtotime($blog->created_at))}}</a></li>
                     </ul>
                     <div class="blog-media">
                         <div class="box-item">
-                            <a href="blog-single.html" >
+                            <a href="{{route('front.blogshow',$blog->url)}}" >
                             <span class="overlay"></span>
-                            <img src="{{asset('web/images/bg/4.jpg')}}"  alt="" class="respimg">
+                            <img src="{{asset('assets/images/blogs/'.$blog->photo)}}" style="height: 165px;"  alt="" class="respimg">
                             </a>
                         </div>
                     </div>
                     <div class="blog-text">
-                        <h3>Aliquip pertinax vix ad</h3>
+                        <h3>{{$blog->title}}</h3>
                         <p>
-                            Vestibulum orci felis, ullamcorper non condimentum non, ultrices ac nunc. Mauris non ligula suscipit, vulputate mi accumsan, dapibus felis. Nullam sed sapien dui. Nulla auctor sit amet sem non porta. Integer iaculis tellus nulla, quis imperdiet magna venenatis vitae..
+                            {{\Illuminate\Support\Str::limit($blog->details, 250)}}
+                            
                         </p>
-                        <a href="blog-single.html" class="ajax btn"><span>read more </span> <i class="fa fa-long-arrow-right"></i></a>
+                        <a href="{{route('front.blogshow',$blog->url)}}" class="ajax btn"><span>read more </span> <i class="fa fa-long-arrow-right"></i></a>
                     </div>
                 </article>
               </div>
-              <div class="col-md-3">
-                <!-- 2 -->
-                <article>
-                    <ul class="blog-title">
-                        <li><a href="#" class="tag">29 may 2015</a></li>
-                    </ul>
-                    <div class="blog-media">
-                        <div class="box-item">
-                            <a href="blog-single.html" >
-                            <span class="overlay"></span>
-                            <img src="{{asset('web/images/bg/3.jpg')}}"  alt="" class="respimg">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="blog-text">
-                        <h3>Te nihil aliquip</h3>
-                        <p>
-                            Vestibulum orci felis, ullamcorper non condimentum non, ultrices ac nunc. Mauris non ligula suscipit, vulputate mi accumsan, dapibus felis. Nullam sed sapien dui. Nulla auctor sit amet sem non porta. Integer iaculis tellus nulla, quis imperdiet magna venenatis vitae..
-                        </p>
-                        <a href="blog-single.html" class="ajax btn"><span>read more </span> <i class="fa fa-long-arrow-right"></i></a>
-                    </div>
-                </article>
-              </div>
-              <div class="col-md-3">
-                <!-- 3 -->
-                <article>
-                    <ul class="blog-title">
-                        <li><a href="#" class="tag">28 may 2015</a></li>
-                    </ul>
-                    <div class="blog-media">
-                        <div class="box-item">
-                            <a href="blog-single.html" >
-                            <span class="overlay"></span>
-                            <img src="{{asset('web/images/bg/1.jpg')}}"  alt="" class="respimg">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="blog-text">
-                        <h3>Delenit interesset</h3>
-                        <p>
-                            Vestibulum orci felis, ullamcorper non condimentum non, ultrices ac nunc. Mauris non ligula suscipit, vulputate mi accumsan, dapibus felis. Nullam sed sapien dui. Nulla auctor sit amet sem non porta. Integer iaculis tellus nulla, quis imperdiet magna venenatis vitae..
-                        </p>
-                        <a href="blog-single.html" class="ajax btn"><span>read more </span> <i class="fa fa-long-arrow-right"></i></a>
-                    </div>
-                </article>
-              </div>
-              <div class="col-md-3">
-                <!-- 4 -->
-                <article>
-                    <ul class="blog-title">
-                        <li><a href="#" class="tag">12 may 2013</a></li>
-                    </ul>
-                    <div class="blog-media">
-                        <div class="box-item">
-                            <a href="blog-single.html" >
-                            <span class="overlay"></span>
-                            <img src="{{asset('web/images/bg/9.jpg')}}"  alt="" class="respimg">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="blog-text">
-                        <h3>Venenatis vitae</h3>
-                        <p>
-                            Vestibulum orci felis, ullamcorper non condimentum non, ultrices ac nunc. Mauris non ligula suscipit, vulputate mi accumsan, dapibus felis. Nullam sed sapien dui. Nulla auctor sit amet sem non porta. Integer iaculis tellus nulla, quis imperdiet magna venenatis vitae..
-                        </p>
-                        <a href="blog-single.html" class="ajax btn"><span>read more </span> <i class="fa fa-long-arrow-right"></i></a>
-                    </div>
-                </article>
-              </div>
+            @endforeach
             </div>
-            <div class="clearfix"></div>
+            <!-- <div class="clearfix"></div> -->
             <!-- pagination   -->
             <div class="pagination-blog">
                 <a href="#" class="prevposts-link transition"><i class="fa fa-chevron-left"></i></a>
