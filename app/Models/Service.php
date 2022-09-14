@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Service extends Model
 {
-    protected $fillable = ['user_id','title','sub_title','details','photo','bg_color'];
+    protected $fillable = ['user_id','title','details','photo'];
     public $timestamps = false;
 }

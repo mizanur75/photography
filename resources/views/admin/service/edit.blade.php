@@ -24,17 +24,6 @@
                             <input type="text" class="input-field" name="title" placeholder="{{ __('Title') }}" value="{{$data->title}}" required="">
                           </div>
                         </div>
-                        <div class="row">
-                          <div class="col-lg-4">
-                            <div class="left-area">
-                                <h4 class="heading">{{ __('Sub Title') }} *</h4>
-                                <p class="sub-heading">{{ __('(In Any Language)') }}</p>
-                            </div>
-                          </div>
-                          <div class="col-lg-7">
-                            <input type="text" class="input-field" name="sub_title" placeholder="{{ __('Sub Title') }}" value="{{$data->sub_title}}" required="">
-                          </div>
-                        </div>
 
                         <div class="row">
                           <div class="col-lg-4">
@@ -43,12 +32,12 @@
                             </div>
                           </div>
                           <div class="col-lg-7">
-                            <div class="img-upload">
+                            <div class="img-upload full-width-img">
                                 <div id="image-preview" class="img-preview" style="background: url({{ $data->photo ? asset('assets/images/services/'.$data->photo):asset('assets/images/noimage.png') }});">
                                     <label for="image-upload" class="img-label" id="image-label"><i class="icofont-upload-alt"></i>{{ __('Upload Image') }}</label>
                                     <input type="file" name="photo" class="img-upload" id="image-upload">
                                   </div>
-                                  <p class="text">{{ __('Prefered Size: (600x600) or Square Sized Image') }}</p>
+                                  <!-- <p class="text">{{ __('Prefered Size: (600x600) or Square Sized Image') }}</p> -->
                             </div>
 
                           </div>
@@ -66,25 +55,6 @@
                               <textarea class="input-field" name="details" placeholder="{{ __('Description') }}">{{ $data->details }}</textarea> 
                           </div>
                         </div>
-                        <div class="row">
-                          <div class="col-lg-4">
-                            <div class="left-area">
-                              <h4 class="heading">
-                                  {{ __('Background Color') }}
-                              </h4>
-                            </div>
-                          </div>
-                          
-                          <div class="col-sm-4">
-                            <div class="input-group colorpicker-component cp">
-                              <input type="text" name="bg_color" value="{{ $data->bg_color }}"  class="form-control cp"  />
-                              <span class="input-group-addon"><i></i></span>
-                            </div>
-                          </div>  
-                        </div>
-
-
-
                         <div class="row">
                           <div class="col-lg-4">
                             <div class="left-area">

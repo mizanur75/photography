@@ -15,12 +15,12 @@
 @endsection
 
 @section('content')  
-					<input type="hidden" id="headerdata" value="{{ __('SERVICE') }}">
+					<input type="hidden" id="headerdata" value="{{ __('STORY') }}">
 					<div class="content-area">
 						<div class="mr-breadcrumb">
 							<div class="row">
 								<div class="col-lg-12">
-										<h4 class="heading">{{ __('Services') }}</h4>
+										<h4 class="heading">{{ __('Story') }}</h4>
 										<ul class="links">
 											<li>
 												<a href="{{ route('admin.dashboard') }}">{{ __('Dashboard') }} </a>
@@ -29,7 +29,7 @@
 												<a href="javascript:;">{{ __('Home Page Settings') }} </a>
 											</li>
 											<li>
-												<a href="{{ route('admin-service-index') }}">{{ __('Services') }}</a>
+												<a href="{{ route('admin-service-index') }}">{{ __('Story') }}</a>
 											</li>
 										</ul>
 								</div>
@@ -46,10 +46,9 @@
 												<table id="geniustable" class="table table-hover dt-responsive" cellspacing="0" width="100%">
 													<thead>
 														<tr>
-									                        <th>{{ __('Featured Image') }}</th>
-									                        <th width="30%">{{ __('Title') }}</th>
-									                        <th width="40%">{{ __('Sub Title') }}</th>
-									                        <th>{{ __('Actions') }}</th>
+			                        <th>{{ __('Featured Image') }}</th>
+			                        <th width="30%">{{ __('Title') }}</th>
+			                        <th>{{ __('Actions') }}</th>
 														</tr>
 													</thead>
 												</table>
@@ -141,8 +140,7 @@
                columns: [
                         { data: 'photo', name: 'photo' , searchable: false, orderable: false},
                         { data: 'title', name: 'title' },
-                        { data: 'sub_title', name: 'sub_title' },
-            			{ data: 'action', searchable: false, orderable: false }
+            						{ data: 'action', searchable: false, orderable: false }
 
                      ],
                 language : {
@@ -153,7 +151,7 @@
       	$(function() {
         $(".btn-area").append('<div class="col-sm-4 table-contents">'+
         	'<a class="add-btn" data-href="{{route('admin-service-create')}}" id="add-data" data-toggle="modal" data-target="#modal1">'+
-          '<i class="fas fa-plus"></i> {{ __('Add New Service') }}'+
+          '<i class="fas fa-plus"></i> {{ __('Add New Story') }}'+
           '</a>'+
           '</div>');
       });											
