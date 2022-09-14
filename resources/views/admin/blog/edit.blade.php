@@ -48,7 +48,7 @@
                             </div>
                           </div>
                           <div class="col-lg-7">
-                            <textarea class="nic-edit" name="details" placeholder="{{ __('Sub Title') }}">{{ $data->sub_title }}</textarea> 
+                            <textarea class="nic-edit" name="sub_title" placeholder="{{ __('Sub Title') }}">{{ $data->sub_title }}</textarea> 
                           </div>
                         </div>
 
@@ -82,27 +82,14 @@
                           </div>
                         </div>
 
-                        <div class="row">
-                          <div class="col-lg-4">
-                            <div class="left-area">
-                                <h4 class="heading">{{ __('Video Link') }} *</h4>
-                            </div>
-                          </div>
-                          <div class="col-lg-7">
-                            <input type="text" class="input-field" name="video_link" placeholder="{{ __('video_link') }}" required="" value="{{$data->video_link}}">
-                          </div>
-                        </div>
-
 
                         <div class="row">
                           <div class="col-lg-4">
                             <div class="left-area">
-                                <h4 class="heading">{{ __('Source') }} *</h4>
+                                <!-- <h4 class="heading">{{ __('Source') }} *</h4> -->
                             </div>
                           </div>
                           <div class="col-lg-7">
-                            <input type="text" class="input-field" name="source" placeholder="{{ __('Source') }}" required="" value="{{$data->source}}">
-
                             <div class="checkbox-wrapper">
                               <input type="checkbox" name="secheck" class="checkclick" id="allowProductSEO" {{ ($data->meta_tag != null || strip_tags($data->meta_description) != null) ? 'checked':'' }}>
                               <label for="allowProductSEO">{{ __('Allow Blog SEO') }}</label>

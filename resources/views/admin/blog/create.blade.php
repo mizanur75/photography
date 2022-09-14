@@ -82,27 +82,15 @@
                               <textarea  class="nic-edit" name="details"></textarea> 
                           </div>
                         </div>
-                        <div class="row">
-                          <div class="col-lg-4">
-                            <div class="left-area">
-                                <h4 class="heading">{{ __('Video Link') }} *</h4>
-                            </div>
-                          </div>
-                          <div class="col-lg-7">
-                            <input type="text" class="input-field" name="video_link" placeholder="{{ __('video_link') }}" required=""  value="{{ Request::old('video_link') }}">
-                          </div>
-                        </div>
 
 
                         <div class="row">
                           <div class="col-lg-4">
                             <div class="left-area">
-                                <h4 class="heading">{{ __('Source') }} *</h4>
+                                <!-- <h4 class="heading">{{ __('Source') }} *</h4> -->
                             </div>
                           </div>
                           <div class="col-lg-7">
-                            <input type="text" class="input-field" name="source" placeholder="{{ __('Source') }}" required="" value="{{ Request::old('source') }}">
-
                             <div class="checkbox-wrapper">
                               <input type="checkbox" name="secheck" class="checkclick" id="allowProductSEO">
                               <label for="allowProductSEO">{{ __('Allow Blog SEO') }}</label>
