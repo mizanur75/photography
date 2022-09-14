@@ -172,7 +172,7 @@
 						@if(Auth::guard('admin')->user()->IsAdmin())
 
 
-						<li>
+						<!-- <li>
 							<a href="#menu" class="accordion-toggle wave-effect" data-toggle="collapse"
 								aria-expanded="false">
 								<i class="fas fa-file-code"></i>{{ __('Menu Page Settings') }}
@@ -189,7 +189,7 @@
 									<a href="{{ route('admin-page-index') }}"><span>{{ __('Other Pages') }}</span></a>
 								</li>
 							</ul>
-						</li>
+						</li> -->
 
 						
 						<li>

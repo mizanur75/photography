@@ -15,70 +15,25 @@
         <div class="full-height-wrap">
             <div class="swiper-container" id="horizontal-slider" data-mwc="1" data-mwa="0">
                 <div class="swiper-wrapper">
-                    <!--=============== 1 ===============-->
+                    @foreach($sliders as $slider)
                     <div class="swiper-slide">
-                        <div class="bg" style="background-image:url({{asset('web/images/bg/22.jpg')}})"></div>
+                        <div class="bg" style="background-image:url({{asset('assets/images/sliders/'.$slider->photo)}})"></div>
                         <div class="overlay"></div>
                         <div class="zoomimage">
-                          <img src="{{asset('web/images/bg/22.jpg')}}" class="intense" alt=""><i class="fa fa-expand"></i>
+                          <img src="{{asset('assets/images/sliders/'.$slider->photo)}}" class="intense" alt=""><i class="fa fa-expand"></i>
                         </div>
                         <div class="slide-title-holder">
                             <div class="slide-title">
-                                <span class="subtitle">At posuere sem accumsan </span>
+                                <span class="subtitle">{{$slider->subtitle_text}}</span>
                                 <div class="separator-image">
                                   <img src="{{asset('web/images/separator.png')}}" alt="">
                                 </div>
-                                <h3 class="transition">  <a href="portfolio-single.html">Blandit praesent</a></h3>
-                                <h4><a  href="portfolio-single.html">View</a></h4>
+                                <h3 class="transition">  <a href="">{{$slider->title_text}}</a></h3>
+                                <!-- <h4><a  href="portfolio-single.html">View</a></h4> -->
                             </div>
                         </div>
                     </div>
-                    <!-- 1 end -->
-                    <!--=============== 2 ===============-->
-                    <div class="swiper-slide">
-                        <div class="bg" style="background-image:url({{asset('web/images/bg/4.jpg')}})"></div>
-                        <div class="overlay"></div>
-                        <div class="zoomimage"><img src="{{asset('web/images/bg/4.jpg')}}" class="intense" alt=""><i class="fa fa-expand"></i></div>
-                        <div class="slide-title-holder">
-                            <div class="slide-title">
-                                <span class="subtitle">At posuere sem accumsan </span>
-                                <div class="separator-image"><img src="{{asset('web/images/separator.png')}}" alt=""></div>
-                                <h3 class="transition">  <a href="portfolio-single.html">In tortor neque</a>  </h3>
-                                <h4><a  href="portfolio-single.html">View</a></h4>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- 2 end -->
-                    <!--=============== 3 ===============-->
-                    <div class="swiper-slide">
-                        <div class="bg" style="background-image:url({{asset('web/images/bg/8.jpg')}})"></div>
-                        <div class="overlay"></div>
-                        <div class="zoomimage"><img src="{{asset('web/images/bg/8.jpg')}}" class="intense" alt=""><i class="fa fa-expand"></i></div>
-                        <div class="slide-title-holder">
-                            <div class="slide-title">
-                                <span class="subtitle">At posuere sem accumsan </span>
-                                <div class="separator-image"><img src="{{asset('web/images/separator.png')}}" alt=""></div>
-                                <h3 class="transition">  <a  href="portfolio-single.html">Vestibulum tincidunt</a>  </h3>
-                                <h4><a  href="portfolio-single.html">View</a></h4>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- 3 end -->
-                    <!--=============== 4 ===============-->
-                    <div class="swiper-slide">
-                        <div class="bg" style="background-image:url({{asset('web/images/bg/46.jpg')}})"></div>
-                        <div class="overlay"></div>
-                        <div class="zoomimage"><img src="{{asset('web/images/bg/46.jpg')}}" class="intense" alt=""><i class="fa fa-expand"></i></div>
-                        <div class="slide-title-holder">
-                            <div class="slide-title">
-                                <span class="subtitle">At posuere sem accumsan </span>
-                                <div class="separator-image"><img src="{{asset('web/images/separator.png')}}" alt=""></div>
-                                <h3 class="transition">  <a  href="portfolio-single.html">Libero bibendum</a>  </h3>
-                                <h4><a  href="portfolio-single.html">View</a></h4>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- 4 end -->
+                    @endforeach
                 </div>
             </div>
             <!-- slider  pagination -->

@@ -25,7 +25,8 @@ class FrontendController extends Controller
 {
     //
     public function stories(){
-        return view('web.stories');
+        $stories = DB::table('services')->orderBy('id','DESC')->take(20)->get();
+        return view('web.stories', compact('stories'));
     }
 
     public function profile(){
@@ -45,14 +46,12 @@ class FrontendController extends Controller
 
 	public function index(Request $request)
 	{
-        $sliders = DB::table('sliders')->get();
-        $services = DB::table('services')->orderBy('id','DESC')->take(3)->get();
-        $reviews =  DB::table('reviews')->orderBy('id','DESC')->take(4)->get();
+        $sliders = DB::table('sliders')->orderBy('id','DESC')->take(5)->get();
+        // $reviews =  DB::table('reviews')->orderBy('id','DESC')->take(4)->get();
         $ps = DB::table('pagesettings')->find(1);
-        $blogs = Blog::orderBy('created_at','desc')->take(3)->get();
 
 
-	    return view('web.index', compact('ps','sliders','services','reviews','blogs'));
+	    return view('web.index', compact('ps','sliders'));
 	}
 
     public function extraIndex(Request $request)
